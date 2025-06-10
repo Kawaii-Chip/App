@@ -1,5 +1,5 @@
+import BasicScreen from "@/components/basic/BasicScreen";
 import { StyleSheet, Text } from "react-native";
-import BasicScreen from "@/components/BasicScreen";
 
 export default function About() {
   return (
