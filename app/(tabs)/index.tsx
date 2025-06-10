@@ -1,17 +1,16 @@
 import BasicScreen from "@/components/basic/BasicScreen";
-import { StyleSheet, Text } from "react-native";
+import TopBar from "@/components/basic/TopBar";
+import { StyleSheet } from "react-native";
 
 export default function Index() {
   return (
     <BasicScreen style={styles.container}>
-      <Text>Home</Text>
+      <TopBar title="Smart Bus" />
     </BasicScreen>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: "center",
-    alignItems: "center",
   },
 });
