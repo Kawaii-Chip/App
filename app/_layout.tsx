@@ -13,7 +13,7 @@ export default function RootLayout() {
       flex: 1,
       backgroundColor: theme[colorScheme].secondaryContainer,
     }}>
-      <Stack>
+      <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       </Stack>
     </SafeAreaView>

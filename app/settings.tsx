@@ -1,11 +1,9 @@
 import BasicScreen from "@/components/basic/BasicScreen";
-import AboutTopBar from "@/components/screens/about/AboutTopBar";
 import { StyleSheet } from "react-native";
 
-export default function About() {
+export default function Index() {
   return (
     <BasicScreen style={styles.container}>
-      <AboutTopBar />
     </BasicScreen>
   );
 }
