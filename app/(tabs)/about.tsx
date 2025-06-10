@@ -1,10 +1,10 @@
 import { StyleSheet, Text } from "react-native";
 import BasicScreen from "@/components/BasicScreen";
 
-export default function Index() {
+export default function About() {
   return (
     <BasicScreen style={styles.container}>
-      <Text>Home</Text>
+      <Text>About</Text>
     </BasicScreen>
   );
 }
