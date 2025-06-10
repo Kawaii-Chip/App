@@ -1,12 +1,13 @@
 import { FallbackColor } from "@/constants/MaterialTheme";
 import { useMaterial3Theme } from "@pchmn/expo-material3-theme";
-import { StyleSheet, Text, useColorScheme, View } from "react-native";
+import { ColorValue, StyleSheet, Text, useColorScheme, View } from "react-native";
 
 type Props = {
   title: string;
+  buttonList?: (color: ColorValue) => React.ReactNode[];
 };
 
-export default function TopBar({ title }: Props) {
+export default function TopBar({ title, buttonList }: Props) {
   const colorScheme = useColorScheme() ?? 'light';
   const { theme } = useMaterial3Theme({ fallbackSourceColor: FallbackColor });
 
@@ -15,6 +16,11 @@ export default function TopBar({ title }: Props) {
   return (
     <View style={styles.container}>
       <Text style={[{ color: elementColor }, styles.text]}>{title}</Text>
+      {buttonList && (
+        <View style={styles.buttonList}>
+          {buttonList(elementColor)}
+        </View>
+      )}
     </View>
   );
 }
@@ -25,9 +31,15 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     padding: 16,
+    gap: 8,
   },
   text: {
     fontSize: 24,
     fontWeight: "bold",
+  },
+  buttonList: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
   },
 });
