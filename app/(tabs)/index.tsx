@@ -1,11 +1,13 @@
 import BasicScreen from "@/components/basic/BasicScreen";
-import TopBar from "@/components/basic/TopBar";
+import IndexTopBar from "@/components/screens/index/IndexTopBar";
 import { StyleSheet } from "react-native";
 
 export default function Index() {
   return (
     <BasicScreen style={styles.container}>
-      <TopBar title="Smart Bus" />
+      <IndexTopBar
+        onClickSettings={() => {}}
+      />
     </BasicScreen>
   );
 }
