@@ -16,12 +16,14 @@ export default function TopBar({ title, buttonListLeft, buttonListRight }: Props
 
   return (
     <View style={styles.container}>
-      {buttonListLeft && (
-        <View style={styles.buttonList}>
-          {buttonListLeft(elementColor)}
-        </View>
-      )}
-      <Text style={[{ color: elementColor }, styles.text]}>{title}</Text>
+      <View style={styles.leftRow}>
+        {buttonListLeft && (
+          <View style={styles.buttonList}>
+            {buttonListLeft(elementColor)}
+          </View>
+        )}
+        <Text style={[{ color: elementColor }, styles.text]}>{title}</Text>
+      </View>
       {buttonListRight && (
         <View style={styles.buttonList}>
           {buttonListRight(elementColor)}
@@ -38,6 +40,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 16,
     gap: 8,
+  },
+  leftRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 16,
   },
   text: {
     fontSize: 24,
