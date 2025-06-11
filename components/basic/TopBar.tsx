@@ -4,10 +4,11 @@ import { ColorValue, StyleSheet, Text, useColorScheme, View } from "react-native
 
 type Props = {
   title: string;
-  buttonList?: (color: ColorValue) => React.ReactNode[];
+  buttonListLeft?: (color: ColorValue) => React.ReactNode[];
+  buttonListRight?: (color: ColorValue) => React.ReactNode[];
 };
 
-export default function TopBar({ title, buttonList }: Props) {
+export default function TopBar({ title, buttonListLeft, buttonListRight }: Props) {
   const colorScheme = useColorScheme() ?? 'light';
   const { theme } = useMaterial3Theme({ fallbackSourceColor: FallbackColor });
 
@@ -15,10 +16,17 @@ export default function TopBar({ title, buttonList }: Props) {
 
   return (
     <View style={styles.container}>
-      <Text style={[{ color: elementColor }, styles.text]}>{title}</Text>
-      {buttonList && (
+      <View style={styles.leftRow}>
+        {buttonListLeft && (
+          <View style={styles.buttonList}>
+            {buttonListLeft(elementColor)}
+          </View>
+        )}
+        <Text style={[{ color: elementColor }, styles.text]}>{title}</Text>
+      </View>
+      {buttonListRight && (
         <View style={styles.buttonList}>
-          {buttonList(elementColor)}
+          {buttonListRight(elementColor)}
         </View>
       )}
     </View>
@@ -32,6 +40,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 16,
     gap: 8,
+  },
+  leftRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 16,
   },
   text: {
     fontSize: 24,
