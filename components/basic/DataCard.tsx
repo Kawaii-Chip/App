@@ -22,9 +22,9 @@ export default function DataCard({ title, value, icon, onPress }: Props) {
       style={[styles.container, { backgroundColor }]}
       onPress={onPress}
     >
-      <Text style={styles.title}>{title}</Text>
+      <Text style={[styles.title, { color: elementColor }]}>{title}</Text>
       <View style={styles.row}>
-        <Text style={styles.value}>{value}</Text>
+        <Text style={[styles.value, { color: elementColor }]}>{value}</Text>
         {icon(elementColor, iconSize)}
       </View>
     </TouchableOpacity>
