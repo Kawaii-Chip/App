@@ -33,6 +33,7 @@ export default function DataCard({ title, value, icon, onPress }: Props) {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     borderRadius: 16,
     padding: 24,
     gap: 16,
