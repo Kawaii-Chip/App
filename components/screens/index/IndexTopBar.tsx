@@ -10,7 +10,7 @@ export default function IndexTopBar({ onClickSettings }: Props) {
   return (
     <TopBar
       title="Smart Bus"
-      buttonList={(color) => [
+      buttonListRight={(color) => [
         <TopBarButton
           key={1}
           icon={<MaterialIcons name="settings" size={24} color={color} />}
