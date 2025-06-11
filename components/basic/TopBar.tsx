@@ -12,10 +12,11 @@ export default function TopBar({ title, buttonListLeft, buttonListRight }: Props
   const colorScheme = useColorScheme() ?? 'light';
   const { theme } = useMaterial3Theme({ fallbackSourceColor: FallbackColor });
 
+  const backgroundColor = theme[colorScheme].secondaryContainer;
   const elementColor = theme[colorScheme].onSecondaryContainer;
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor }]}>
       <View style={styles.leftRow}>
         {buttonListLeft && (
           <View style={styles.buttonList}>
