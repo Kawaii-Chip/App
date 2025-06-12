@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import fetchAllProperties from "../FetchAllProperties";
+import fetchAllProperties from "../api/FetchAllProperties";
 import DeviceInfo from "../models/DeviceInfo";
 
 class DeviceInfoViewModel {
