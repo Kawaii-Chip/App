@@ -4,7 +4,7 @@ import { useNavigation } from "expo-router";
 import { observer } from "mobx-react-lite";
 import IndexTopBar from "./IndexTopBar";
 import DataCard from "@/components/basic/DataCard";
-import { FontAwesome6, MaterialIcons } from "@expo/vector-icons";
+import { FontAwesome6, MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 import Row from "@/components/basic/Row";
 import { ScrollView, StyleSheet } from "react-native";
 
@@ -22,7 +22,7 @@ export const IndexScreen = observer(() => {
         <IndexTopBar
           onClickSettings={() => navigation.navigate("settings" as never)}
         />
-        <Row style={{ marginHorizontal: 16, gap: 16 }}>
+        <Row style={styles.row}>
           <DataCard
             title="Temperature"
             value={`${deviceViewModel.temperature}℃`}
@@ -34,6 +34,13 @@ export const IndexScreen = observer(() => {
             icon={(color, size) => <MaterialIcons name="water-drop" size={size} color={color} />}
           />
         </Row>
+        <Row style={styles.row}>
+          <DataCard
+            title="Passengers"
+            value={`${deviceViewModel.passengerNumber}`}
+            icon={(color, size) => <MaterialCommunityIcons name="seat-passenger" size={size} color={color} />}
+          />
+        </Row>
       </ScrollView>
     </BasicScreen>
   );
@@ -41,6 +48,10 @@ export const IndexScreen = observer(() => {
 
 const styles = StyleSheet.create({
   scrollViewContent: {
+    gap: 16,
+  },
+  row: {
+    marginHorizontal: 16,
     gap: 16,
   },
 });

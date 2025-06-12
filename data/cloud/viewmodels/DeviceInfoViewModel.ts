@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import fetchAllProperties from "../FetchAllProperties";
+import fetchAllProperties from "../api/FetchAllProperties";
 import DeviceInfo from "../models/DeviceInfo";
 
 class DeviceInfoViewModel {
@@ -24,6 +24,7 @@ class DeviceInfoViewModel {
 
   get temperature() { return this._deviceInfo.temperature; }
   get humidity() { return this._deviceInfo.humidity; }
+  get passengerNumber() { return this._deviceInfo.passengerNumber; }
 
   flush() { this.init(); }
 }
