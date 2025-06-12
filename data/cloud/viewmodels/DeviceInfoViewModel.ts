@@ -24,6 +24,7 @@ class DeviceInfoViewModel {
 
   get temperature() { return this._deviceInfo.temperature; }
   get humidity() { return this._deviceInfo.humidity; }
+  get passengerNumber() { return this._deviceInfo.passengerNumber; }
 
   flush() { this.init(); }
 }

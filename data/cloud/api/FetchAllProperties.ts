@@ -16,10 +16,12 @@ export default async function fetchAllProperties(): Promise<DeviceInfo> {
     const data = response.data;
     // console.log(data);
     const raw = data.data as any;
-    const dth11 = JSON.parse(raw.find((item: any) => item.name === "DTH11").value);
+    const dth11 = JSON.parse(raw.find((item: any) => item.name === "DTH11")?.value) ?? [-1, -1];
+    const passengerNumber = raw.find((item: any) => item.name === "passenger")?.value ?? 0;
     return new DeviceInfo(
       dth11[0],
       dth11[1],
+      passengerNumber,
     );
   } catch (e) {
     console.warn(`FetchAllProperties error: ${e}`);
