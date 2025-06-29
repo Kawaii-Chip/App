@@ -1,18 +1,22 @@
 import BasicScreen from "@/components/basic/BasicScreen";
+import DataCard from "@/components/basic/DataCard";
+import DataInputCard from "@/components/basic/DataInputCard";
+import Row from "@/components/basic/Row";
+import setProperties from "@/data/cloud/api/SetProperties";
 import useDeviceInfoViewModel from "@/data/cloud/viewmodels/DeviceInfoViewModel";
+import { FontAwesome, FontAwesome6, MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "expo-router";
 import { observer } from "mobx-react-lite";
-import IndexTopBar from "./IndexTopBar";
-import DataCard from "@/components/basic/DataCard";
-import { FontAwesome, FontAwesome6, MaterialIcons } from "@expo/vector-icons";
-import Row from "@/components/basic/Row";
+import { useState } from "react";
 import { ScrollView, StyleSheet } from "react-native";
-import setProperties from "@/data/cloud/api/SetProperties";
-import DataInputCard from "@/components/basic/DataInputCard";
+import IndexTopBar from "./IndexTopBar";
 
 export const IndexScreen = observer(() => {
   const navigation = useNavigation();
   const deviceViewModel = useDeviceInfoViewModel();
+
+  const [fanState, setFanState] = useState(false);
+  const [lightState, setLightState] = useState(false);
 
   return (
     <BasicScreen>
@@ -60,6 +64,42 @@ export const IndexScreen = observer(() => {
             title="Humidity"
             value={`${deviceViewModel.humidity}%`}
             icon={(color, size) => <MaterialIcons name="water-drop" size={size} color={color} />}
+          />
+        </Row>
+        <Row style={styles.row}>
+          <DataCard
+            title="Light"
+            value={lightState ? "On" : "Off"}
+            icon={(color, size) => lightState
+              ? <MaterialIcons name="lightbulb" size={size} color={color} />
+              : <MaterialIcons name="lightbulb-outline" size={size} color={color} />
+            }
+            onPress={async () => {
+              setLightState(prev => !prev);
+              await setProperties(
+                2, // appkey
+                undefined, // passenger
+                undefined, // quest
+                lightState ? "3" : "4", // advice
+              );
+            }}
+          />
+          <DataCard
+            title="Fan"
+            value={fanState ? "On" : "Off"}
+            icon={(color, size) => fanState
+              ? <MaterialCommunityIcons name="fan" size={size} color={color} />
+              : <MaterialCommunityIcons name="fan-off" size={size} color={color} />
+            }
+            onPress={async () => {
+              setFanState(prev => !prev);
+              await setProperties(
+                2, // appkey
+                undefined, // passenger
+                undefined, // quest
+                fanState ? "1" : "2", // advice
+              );
+            }}
           />
         </Row>
       </ScrollView>

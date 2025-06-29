@@ -6,6 +6,7 @@ export default async function setProperties(
   appkey?: number,
   passenger?: string,
   quest?: string,
+  advice?: string,
 ) {
   try {
     const url = `${ONENET_BASE_URL}/set-device-desired-property`;
