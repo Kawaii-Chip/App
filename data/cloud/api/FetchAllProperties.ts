@@ -7,12 +7,12 @@ export default async function fetchAllProperties(): Promise<DeviceInfo> {
   const url = `${ONENET_BASE_URL}/query-device-property?product_id=${ONENET_PRODUCT_ID}&device_name=${ONENET_DEVICE_NAME}`;
 
   try {
-      const response = await axios.get(url, {
-        headers: {
-          "Accept": "application/json",
-          "Authorization": `${AUTH_TOKEN}`,
-        },
-      });
+    const response = await axios.get(url, {
+      headers: {
+        "Accept": "application/json",
+        "Authorization": `${AUTH_TOKEN}`,
+      },
+    });
     const data = response.data;
     // console.log(data);
     const raw = data.data as any;
