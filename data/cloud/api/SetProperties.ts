@@ -17,6 +17,7 @@ export default async function setProperties(
         appkey: appkey,
         passenger: passenger,
         quest: quest,
+        advice: advice,
       },
     }, {
       headers: {
