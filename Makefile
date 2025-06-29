@@ -22,7 +22,7 @@ build: setup
 	@$(EXPO) export --platform $(PLATFORM)
 
 preview:
-	@$(EXPO) start --platform $(PLATFORM)
+	@$(EXPO) start --$(PLATFORM)
 
 OUTPUT_DIR := dist
 
