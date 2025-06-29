@@ -18,7 +18,7 @@ help:
 setup:
 	@$(NPM) install
 
-build:
+build: setup
 	@$(EXPO) export --platform $(PLATFORM)
 
 preview:
