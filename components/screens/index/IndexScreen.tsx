@@ -25,18 +25,6 @@ export const IndexScreen = observer(() => {
           onClickSettings={() => navigation.navigate("settings" as never)}
         />
         <Row style={styles.row}>
-          <DataCard
-            title="Temperature"
-            value={`${deviceViewModel.temperature}℃`}
-            icon={(color, size) => <FontAwesome6 name="temperature-half" size={size} color={color} />}
-          />
-          <DataCard
-            title="Humidity"
-            value={`${deviceViewModel.humidity}%`}
-            icon={(color, size) => <MaterialIcons name="water-drop" size={size} color={color} />}
-          />
-        </Row>
-        <Row style={styles.row}>
           <DataInputCard
             title="Register"
             placeholder="Destination"
@@ -60,6 +48,18 @@ export const IndexScreen = observer(() => {
                 "1" + value, // quest
               );
             }}
+          />
+        </Row>
+        <Row style={styles.row}>
+          <DataCard
+            title="Temperature"
+            value={`${deviceViewModel.temperature}℃`}
+            icon={(color, size) => <FontAwesome6 name="temperature-half" size={size} color={color} />}
+          />
+          <DataCard
+            title="Humidity"
+            value={`${deviceViewModel.humidity}%`}
+            icon={(color, size) => <MaterialIcons name="water-drop" size={size} color={color} />}
           />
         </Row>
       </ScrollView>
