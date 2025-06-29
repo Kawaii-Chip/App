@@ -1,11 +1,11 @@
 import BasicScreen from "@/components/basic/BasicScreen";
 import DataCard from "@/components/basic/DataCard";
 import Row from "@/components/basic/Row";
+import setProperties from "@/data/cloud/api/SetProperties";
 import MaterialCommunityIcons from "@expo/vector-icons/build/MaterialCommunityIcons";
 import { observer } from "mobx-react-lite";
 import { ScrollView, StyleSheet } from "react-native";
 import SettingsTopBar from "./SettingsTopBar";
-import setProperties from "@/data/cloud/api/SetProperties";
 
 export const SettingsScreen = observer(() => {
   return (
