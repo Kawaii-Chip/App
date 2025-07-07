@@ -9,19 +9,19 @@ export async function getInForStarting(startingCode: number) {
 }
 
 export async function lightOn() {
-  await setProperties(2, undefined, undefined, "3");
+  await setProperties(6, undefined, undefined, "3");
 }
 
 export async function lightOff() {
-  await setProperties(2, undefined, undefined, "4");
+  await setProperties(6, undefined, undefined, "4");
 }
 
 export async function fanOn() {
-  await setProperties(2, undefined, undefined, "1");
+  await setProperties(6, undefined, undefined, "1");
 }
 
 export async function fanOff() {
-  await setProperties(2, undefined, undefined, "2");
+  await setProperties(6, undefined, undefined, "2");
 }
 
 /// Debug region
