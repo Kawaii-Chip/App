@@ -18,6 +18,7 @@ export default function DataInputCard({ title, placeholder, icon, onPress }: Pro
 
   const backgroundColor = theme[colorScheme].primaryContainer;
   const elementColor = theme[colorScheme].onPrimaryContainer;
+  const inputBoxColor = theme[colorScheme].inversePrimary;
   const iconSize = 36;
 
   return (
@@ -28,7 +29,7 @@ export default function DataInputCard({ title, placeholder, icon, onPress }: Pro
       <Text style={[styles.title, { color: elementColor }]}>{title}</Text>
       <View style={styles.row}>
         <TextInput
-          style={[styles.value, { color: elementColor }]}
+          style={[styles.value, { backgroundColor: inputBoxColor, color: elementColor }]}
           placeholder={placeholder}
           placeholderTextColor={elementColor}
           onChangeText={setValue}
@@ -61,5 +62,7 @@ const styles = StyleSheet.create({
   },
   value: {
     fontSize: 16,
+    borderRadius: 16,
+    padding: 8,
   },
 });
