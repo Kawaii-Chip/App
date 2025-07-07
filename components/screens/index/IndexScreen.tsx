@@ -108,7 +108,7 @@ export const IndexScreen = observer(() => {
           <DataInputCard
             title="AI"
             placeholder="Demand"
-            icon={(color, size) => <FontAwesome6 name="temperature-half" size={size} color={color} />}
+            icon={(color, size) => <MaterialIcons name="support-agent" size={size} color={color} />}
             onPress={async (value) => {}}
           />
         </Row>
