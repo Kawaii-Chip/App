@@ -2,7 +2,6 @@ import BasicScreen from "@/components/basic/BasicScreen";
 import DataCard from "@/components/basic/DataCard";
 import DataInputCard from "@/components/basic/DataInputCard";
 import Row from "@/components/basic/Row";
-import setProperties from "@/data/cloud/api/raw/SetProperties";
 import useDeviceInfoViewModel from "@/data/cloud/viewmodels/DeviceInfoViewModel";
 import { FontAwesome, FontAwesome6, MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "expo-router";
@@ -10,6 +9,7 @@ import { observer } from "mobx-react-lite";
 import { useState } from "react";
 import { ScrollView, StyleSheet } from "react-native";
 import IndexTopBar from "./IndexTopBar";
+import { fanOff, fanOn, getInForStarting, lightOff, lightOn, registerForDestination } from "@/data/cloud/api/DeviceControl";
 
 export const IndexScreen = observer(() => {
   const navigation = useNavigation();
@@ -33,25 +33,13 @@ export const IndexScreen = observer(() => {
             title="Register"
             placeholder="Destination"
             icon={(color, size) => <FontAwesome name="sign-in" size={size} color={color} />}
-            onPress={async (value) => {
-              await setProperties(
-                1, // appkey
-                value, // passenger
-                undefined, // quest
-              );
-            }}
+            onPress={async (value) => await registerForDestination(Number(value))}
           />
           <DataInputCard
             title="Get in"
             placeholder="Starting"
             icon={(color, size) => <FontAwesome6 name="bus" size={size} color={color} />}
-            onPress={async (value) => {
-              await setProperties(
-                5, // appkey
-                undefined, // passenger
-                "1" + value, // quest
-              );
-            }}
+            onPress={async (value) => await getInForStarting(Number(value))}
           />
         </Row>
         <Row style={styles.row}>
@@ -78,12 +66,7 @@ export const IndexScreen = observer(() => {
             }
             onPress={async () => {
               setLightState(prev => !prev);
-              await setProperties(
-                2, // appkey
-                undefined, // passenger
-                undefined, // quest
-                lightState ? "3" : "4", // advice
-              );
+              await (lightState ? lightOff() : lightOn());
             }}
           />
           <DataCard
@@ -95,12 +78,7 @@ export const IndexScreen = observer(() => {
             }
             onPress={async () => {
               setFanState(prev => !prev);
-              await setProperties(
-                2, // appkey
-                undefined, // passenger
-                undefined, // quest
-                fanState ? "1" : "2", // advice
-              );
+              await (fanState ? fanOff() : fanOn());
             }}
           />
         </Row>
