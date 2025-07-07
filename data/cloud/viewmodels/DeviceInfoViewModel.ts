@@ -26,7 +26,7 @@ class DeviceInfoViewModel {
   get humidity() { return this._deviceInfo.humidity; }
   get passengerNumber() { return this._deviceInfo.passengerNumber; }
 
-  flush() { this.init(); }
+  async flush() { await this.init(); }
 }
 
 export default function useDeviceInfoViewModel() {

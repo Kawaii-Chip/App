@@ -59,11 +59,13 @@ export const IndexScreen = observer(() => {
             title="Temperature"
             value={`${deviceViewModel.temperature}℃`}
             icon={(color, size) => <FontAwesome6 name="temperature-half" size={size} color={color} />}
+            onPress={async () => await deviceViewModel.flush()}
           />
           <DataCard
             title="Humidity"
             value={`${deviceViewModel.humidity}%`}
             icon={(color, size) => <MaterialIcons name="water-drop" size={size} color={color} />}
+            onPress={async () => await deviceViewModel.flush()}
           />
         </Row>
         <Row style={styles.row}>
