@@ -10,6 +10,7 @@ import { useState } from "react";
 import { ScrollView, StyleSheet } from "react-native";
 import IndexTopBar from "./IndexTopBar";
 import { fanOff, fanOn, getInForStarting, lightOff, lightOn, registerForDestination } from "@/data/cloud/api/DeviceControl";
+import { agentControl } from "@/data/cloud/api/AgentControl";
 
 export const IndexScreen = observer(() => {
   const navigation = useNavigation();
@@ -87,7 +88,7 @@ export const IndexScreen = observer(() => {
             title="AI"
             placeholder="Demand"
             icon={(color, size) => <MaterialIcons name="support-agent" size={size} color={color} />}
-            onPress={async (value) => {}}
+            onPress={async (value) => await agentControl(value)}
           />
         </Row>
       </ScrollView>
