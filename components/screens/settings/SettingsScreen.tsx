@@ -5,7 +5,7 @@ import MaterialCommunityIcons from "@expo/vector-icons/build/MaterialCommunityIc
 import { observer } from "mobx-react-lite";
 import { ScrollView, StyleSheet } from "react-native";
 import SettingsTopBar from "./SettingsTopBar";
-import { gotoNextStation } from "@/data/cloud/api/DeviceControl";
+import { genLogToSDcard, gotoNextStation } from "@/data/cloud/api/DeviceControl";
 
 export const SettingsScreen = observer(() => {
   return (
@@ -22,6 +22,12 @@ export const SettingsScreen = observer(() => {
             value="✓"
             icon={(color, size) => <MaterialCommunityIcons name="bus-marker" size={size} color={color} />}
             onPress={async () => await gotoNextStation()}
+          />
+          <DataCard
+            title="Gen Log"
+            value="SDcard"
+            icon={(color, size) => <MaterialCommunityIcons name="file-document-edit" size={size} color={color} />}
+            onPress={async () => await genLogToSDcard()}
           />
         </Row>
       </ScrollView>

@@ -36,3 +36,7 @@ export async function busFaster() {
 export async function gotoNextStation() {
   await setProperties(10);
 }
+
+export async function genLogToSDcard() {
+  await setProperties(3);
+}
