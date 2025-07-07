@@ -104,6 +104,14 @@ export const IndexScreen = observer(() => {
             }}
           />
         </Row>
+        <Row style={styles.row}>
+          <DataInputCard
+            title="AI"
+            placeholder="Demand"
+            icon={(color, size) => <FontAwesome6 name="temperature-half" size={size} color={color} />}
+            onPress={async (value) => {}}
+          />
+        </Row>
       </ScrollView>
     </BasicScreen>
   );

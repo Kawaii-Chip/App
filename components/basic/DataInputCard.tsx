@@ -58,11 +58,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "baseline",
     justifyContent: "space-between",
-    gap: 8,
+    gap: 16,
   },
   value: {
+    flex: 1,
     fontSize: 16,
     borderRadius: 16,
     padding: 8,
+    overflow: "hidden",
   },
 });
