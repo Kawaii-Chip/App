@@ -2,7 +2,7 @@ import BasicScreen from "@/components/basic/BasicScreen";
 import DataCard from "@/components/basic/DataCard";
 import DataInputCard from "@/components/basic/DataInputCard";
 import Row from "@/components/basic/Row";
-import setProperties from "@/data/cloud/api/SetProperties";
+import setProperties from "@/data/cloud/api/raw/SetProperties";
 import useDeviceInfoViewModel from "@/data/cloud/viewmodels/DeviceInfoViewModel";
 import { FontAwesome, FontAwesome6, MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "expo-router";

@@ -1,7 +1,7 @@
 import { ONENET_BASE_URL, ONENET_DEVICE_NAME, ONENET_PRODUCT_ID } from "@/constants/Config";
 import { AUTH_TOKEN } from "@/constants/Secret";
 import axios from "axios";
-import DeviceInfo from "../models/DeviceInfo";
+import DeviceInfo from "../../models/DeviceInfo";
 
 export default async function fetchAllProperties(): Promise<DeviceInfo> {
   const url = `${ONENET_BASE_URL}/query-device-property?product_id=${ONENET_PRODUCT_ID}&device_name=${ONENET_DEVICE_NAME}`;
