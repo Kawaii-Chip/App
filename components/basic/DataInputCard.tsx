@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
   },
   value: {
     flex: 1,
-    fontSize: 16,
+    fontSize: 12,
     borderRadius: 16,
     padding: 8,
     overflow: "hidden",
