@@ -24,6 +24,14 @@ export async function fanOff() {
   await setProperties(6, undefined, undefined, "2");
 }
 
+export async function busSlower() {
+  await setProperties(6, undefined, undefined, "5");
+}
+
+export async function busFaster() {
+  await setProperties(6, undefined, undefined, "6");
+}
+
 /// Debug region
 export async function gotoNextStation() {
   await setProperties(10);

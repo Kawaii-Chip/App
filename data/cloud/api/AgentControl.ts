@@ -1,4 +1,4 @@
-import { fanOff, fanOn, lightOff, lightOn } from "./DeviceControl";
+import { busFaster, busSlower, fanOff, fanOn, lightOff, lightOn } from "./DeviceControl";
 import { askAI } from "./raw/AskAI";
 
 const PROMPT = `
@@ -11,6 +11,8 @@ You are an intelligent home control system assistant. Your task is to analyze us
 - \`lightOff\`: Turn off the lights  
 - \`fanOn\`: Turn on the fan
 - \`fanOff\`: Turn off the fan
+- \`busSlower\`: Slow down the bus
+- \`busFaster\`: Speed up the bus
 
 ## Response Format
 Always respond with a JSON object containing:
@@ -137,6 +139,13 @@ export async function agentControl(userInput: string) {
             console.log("fanOff");
             await fanOff();
             break;
+          case "busSlower":
+            console.log("busSlower");
+            await busSlower();
+            break;
+          case "busFaster":
+            console.log("busFaster");
+            await busFaster();
         }
       }
     }
